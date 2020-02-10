@@ -10,4 +10,4 @@ This application can be used to find photos from the [NASA Image Library](https:
 - AJAX
 
 ## Preview: 
-Check the preview of the quiz [HERE](https://cenora6.github.io/NASA-API-Challenge/)
+Check the preview of the website [HERE](https://cenora6.github.io/NASA-API-Challenge/).
