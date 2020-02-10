@@ -3,12 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>NASA API Challenge</title>
+    <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <script src="./js/jquery-3.1.1.min.js"></script>
-    <script src="./js/app.js"></script>
+<header class="title">
+    <div class="stars">
+        <img src="images/nasa.png">
+        <h2>API Challenge</h2>
+    </div>
+    <div class="twinkling">
+    </div>
+</header>
+
+<section class="gallery">
+    <form>
+        <div class="search-nasa">
+            <label for="search">Search: </label>
+            <input type="text" name="search" id="search" placeholder="type a name in here example - Earth">
+        </div>
+        <button id="submit" type="submit" class="button">Search</button>
+    </form>
+
+    <div id="overlayer"></div>
+
+    <span class="loader"></span>
+
+    <div class="photos">
+    </div>
+</section>
+
+<footer>
+    <h2>
+        Copyright by Aleksandra Gasidlo</h2>
+</footer>
+
+
+<script src="./js/jquery-3.1.1.min.js"></script>
+<script src="./js/app.js"></script>
 </body>
 </html>
