@@ -21,24 +21,26 @@
 </header>
 
 <section class="gallery">
+    <span class="scroll">
+        <i class="far fa-arrow-alt-circle-up"></i>
+        <img src="images/nasalogo.png"/>
+    </span>
     <form>
         <div class="search-nasa">
             <label for="search">Search: </label>
-            <div class="input">
-                <input type="text" name="search" id="search" placeholder="example - Earth">
-                <i class="far fa-times-circle btn"></i>
-            </div>
+            <input type="text" name="search" id="search" placeholder="example - Earth">
         </div>
         <button id="submit" type="submit" class="btn">Search</button>
     </form>
-    <div class="photos"></div>
+    <div class="photos">
+        <div class="loader"></div>
+    </div>
 </section>
 
 <footer>
     <img src="images/copyright.png" alt="copyright"/>
     <h3>Aleksandra Gasidlo</h3>
 </footer>
-
 
 <script src="./js/jquery-3.1.1.min.js"></script>
 <script src="./js/app.js"></script>
