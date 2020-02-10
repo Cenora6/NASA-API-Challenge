@@ -4,7 +4,7 @@ $(function () {
     const form = $("form");
     const button = form.find("button");
 
-    $('.loader').hide()
+    $('.loader').hide();
     button.on("click", function (e) {
         const photos = $(".photos");
         const single = photos.find('.single-photo');
@@ -16,26 +16,45 @@ $(function () {
         const input = form.find("input");
         const value = input.val();
 
-        $.ajax({
-            url : 'https://images-api.nasa.gov/search?q=' + value,
-            method: 'GET',
-            dataType: "json",
-            beforeSend: function(){
-                $('.loader').show();
-            },
-        }).done(function(result) {
-            window.setTimeout(function () {
-                if(result.collection.items.length === 0) {
-                    $('.loader').hide();
-                    showEmpty();
-                    input.val('');
-                } else {
-                    $('.loader').hide();
-                    input.val('');
-                    showPhotos( result.collection.items );
-                }
-            }, 1000);
-        })
+        if(value !== '') {
+
+            input.css({
+                outlineColor: "#f8b500",
+                outlineStyle: "double",
+            });
+            button.css({
+                border: "0.3rem outset #f8b500",
+            });
+
+            $.ajax({
+                url: 'https://images-api.nasa.gov/search?q=' + value,
+                method: 'GET',
+                dataType: "json",
+                beforeSend: function () {
+                    $('.loader').show();
+                },
+            }).done(function (result) {
+                window.setTimeout(function () {
+                    if (result.collection.items.length === 0) {
+                        $('.loader').hide();
+                        showEmpty();
+                        input.val('');
+                    } else {
+                        $('.loader').hide();
+                        input.val('');
+                        showPhotos(result.collection.items);
+                    }
+                }, 1000);
+            })
+        } else {
+            input.css({
+                outlineColor: "#f84238",
+                outlineStyle: "solid",
+            });
+            button.css({
+                border: "0.2rem solid #f84238",
+            })
+        }
     });
 
     function showPhotos (photos) {
@@ -50,11 +69,11 @@ $(function () {
             let imageLinks = photos[i].links[0].href;
             if(imageLinks.indexOf('jpeg') > -1 || imageLinks.indexOf('jpg') > -1) {
                 const newDiv = $("<div class='single-photo'>");
-                photo.append(newDiv)
+                photo.append(newDiv);
                 const newImg = $('<img alt="photos" class="gallery-image">');
                 newDiv.append(newImg);
                 newImg.attr('src', imageLinks)
-                newDiv.hide().fadeIn(2000);
+                newDiv.hide().fadeIn(3500);
             }
         }
 
@@ -86,9 +105,9 @@ $(function () {
     window.onscroll = function () {
         const scrollTop = $(window).scrollTop();
         if ( scrollTop > 1500 ) {
-            buttonScroll.fadeIn();
+            buttonScroll.fadeIn(500);
         } else {
-            buttonScroll.fadeOut();
+            buttonScroll.fadeOut(500);
         }
     };
 
