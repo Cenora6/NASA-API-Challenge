@@ -51,7 +51,7 @@ $(function () {
             if(imageLinks.indexOf('jpeg') > -1 || imageLinks.indexOf('jpg') > -1) {
                 const newDiv = $("<div class='single-photo'>");
                 photo.append(newDiv)
-                const newImg = $('<img alt="photos">');
+                const newImg = $('<img alt="photos" class="gallery-image">');
                 newDiv.append(newImg);
                 newImg.attr('src', imageLinks)
                 newDiv.hide().fadeIn(2000);
@@ -95,5 +95,30 @@ $(function () {
     buttonScroll.on("click", function () {
         $('html').animate({scrollTop : 0},1000);
         return false;
+    });
+
+
+    const singlePhoto = $('.single-photo');
+    const image = singlePhoto.find('.gallery-image');
+    const modal = $('.modal');
+    const modalImage = modal.find('.image');
+
+    $('.photos').on('click', image, function(e) {
+
+        modal.fadeIn(800);
+        modal.css({
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+        });
+        modalImage.attr('src', $(e.target)[0].src);
+    });
+
+    modal.on('click', function () {
+        modal.fadeOut(400);
+        window.setTimeout(function () {
+            modalImage.attr('src', '');
+        }, 400);
     })
+
 });
