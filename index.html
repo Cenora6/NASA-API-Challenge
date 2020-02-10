@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/main.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e817da4ca7.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -23,22 +24,19 @@
     <form>
         <div class="search-nasa">
             <label for="search">Search: </label>
-            <input type="text" name="search" id="search" placeholder="type a name in here example - Earth">
+            <div class="input">
+                <input type="text" name="search" id="search" placeholder="example - Earth">
+                <i class="far fa-times-circle btn"></i>
+            </div>
         </div>
-        <button id="submit" type="submit" class="button">Search</button>
+        <button id="submit" type="submit" class="btn">Search</button>
     </form>
-
-    <div id="overlayer"></div>
-
-    <span class="loader"></span>
-
-    <div class="photos">
-    </div>
+    <div class="photos"></div>
 </section>
 
 <footer>
-    <h2>
-        Copyright by Aleksandra Gasidlo</h2>
+    <img src="images/copyright.png" alt="copyright"/>
+    <h3>Aleksandra Gasidlo</h3>
 </footer>
 
 
