@@ -143,6 +143,13 @@ button:focus {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 768px) {
+    .single-photo img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -180,6 +187,18 @@ footer {
 footer img {
     height: 2rem;
     margin-right: 2rem;
+    z-index: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+    }
+
+    footer img {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
 }
 
 .loader {
